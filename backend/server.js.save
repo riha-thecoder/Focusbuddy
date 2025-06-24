@@ -1,0 +1,22 @@
+const express = require('express');
+const cors = require('cors');
+const {pool} = require('pg');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const pool = new pool({
+user: 'postgres',
+host: 'localhost',
+database: 'focusbuddy_db',
+password: 'Sehrish@2024',
+port: 5432,
+});
+
+app.get('/', (req, res) => {
+res.send('focus buddy backend is running!');
+});
+app.listen(5000, () => {
+console.log('server running on http://localhost:5000');
+});
